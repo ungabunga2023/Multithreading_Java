@@ -8,7 +8,6 @@ public class InterruptExample2 {
         Thread.sleep(2_000);
         thread.interrupt();
     }
-
 }
 
 class TaskWithInterrupt implements Runnable {
@@ -29,7 +28,7 @@ class TaskWithInterrupt implements Runnable {
         try {
             Thread.sleep(mills);
         } catch (InterruptedException e) {
-            Thread.currentThread().isInterrupted(); //восстанавливаем флаг прерывания
+            Thread.currentThread().interrupt(); //восстанавливаем флаг прерывания
             throw new RuntimeException(e);
         }
     }
