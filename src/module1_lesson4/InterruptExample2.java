@@ -28,6 +28,7 @@ class TaskWithInterrupt implements Runnable {
         try {
             Thread.sleep(mills);
         } catch (InterruptedException e) {
+            System.out.println(Thread.currentThread().isInterrupted()); //false
             Thread.currentThread().interrupt(); //восстанавливаем флаг прерывания
             throw new RuntimeException(e);
         }
