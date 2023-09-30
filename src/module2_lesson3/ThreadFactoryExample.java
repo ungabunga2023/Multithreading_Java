@@ -1,5 +1,6 @@
 package module2_lesson3;
 
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
 public class ThreadFactoryExample {
@@ -23,7 +24,7 @@ class CustomThreadFactory implements ThreadFactory {
     }
 
     public Thread newThread(Runnable r) {
-        Thread thread = new Thread(r);
+        Thread thread = Executors.defaultThreadFactory().newThread(r);
         thread.setName(name);
         thread.setPriority(7);
         return thread;
