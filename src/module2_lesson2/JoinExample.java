@@ -1,4 +1,4 @@
-package module2_lesson6;
+package module2_lesson2;
 
 public class JoinExample {
 

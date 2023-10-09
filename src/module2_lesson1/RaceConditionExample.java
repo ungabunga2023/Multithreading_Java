@@ -1,26 +1,24 @@
-package module2_lesson5;
+package module2_lesson1;
 
-public class RaceConditionSynchronizedExample {
+public class RaceConditionExample {
 
-    //Правильная работа с потоками с помощью synchronized
+    //Неправильная работа с потоками
     public static void main(String[] args) throws InterruptedException {
-        SynchronizedIncrementer incrementer = new SynchronizedIncrementer();
+        Incrementer incrementer = new Incrementer();
         for (int i = 0; i < 200; i++) { //создали 200 потоков, каждый увеличил на 1000
-            SynchronizedIncrementerThread ct = new SynchronizedIncrementerThread(incrementer);
+            IncrementerThread ct = new IncrementerThread(incrementer);
             new Thread(ct).start();
         }
-        Thread.sleep(3000);
+        Thread.sleep(5_000);
         System.out.println("Counter:" + incrementer.getAmount()); //должно быть 200_000
     }
 }
 
-class SynchronizedIncrementer {
+class Incrementer {
     private long amount = 0L;
 
     public void increaseAmount() {
-        synchronized (this) {
-            amount++;
-        }
+        amount++;
     }
 
     public long getAmount() {
@@ -28,10 +26,10 @@ class SynchronizedIncrementer {
     }
 }
 
-class SynchronizedIncrementerThread implements Runnable {
-    private SynchronizedIncrementer incrementer;
+class IncrementerThread implements Runnable {
+    private Incrementer incrementer;
 
-    public SynchronizedIncrementerThread(SynchronizedIncrementer incrementer) {
+    public IncrementerThread(Incrementer incrementer) {
         this.incrementer = incrementer;
     }
 
@@ -42,4 +40,3 @@ class SynchronizedIncrementerThread implements Runnable {
         }
     }
 }
-

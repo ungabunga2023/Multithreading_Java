@@ -1,4 +1,4 @@
-package module2_lesson5;
+package module2_lesson1;
 
 import java.util.concurrent.atomic.AtomicLong;
 

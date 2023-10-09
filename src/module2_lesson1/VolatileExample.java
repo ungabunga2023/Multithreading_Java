@@ -1,4 +1,4 @@
-package module2_lesson5;
+package module2_lesson1;
 
 public class VolatileExample {
     static volatile boolean RUNNING = true; // правильная работа программы с volatile

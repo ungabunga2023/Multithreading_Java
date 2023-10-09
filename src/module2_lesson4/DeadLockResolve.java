@@ -1,4 +1,4 @@
-package module2_lesson8;
+package module2_lesson4;
 
 public class DeadLockResolve {
 

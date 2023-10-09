@@ -1,4 +1,4 @@
-package module2_lesson7;
+package module2_lesson3;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
