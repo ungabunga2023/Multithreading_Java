@@ -65,6 +65,7 @@ class Shower {
                 }
                 else {
                     inShower.incrementAndGet();
+                    System.out.println("В душевой " + inShower + " " + showerState);
                 }
             }
 
@@ -77,8 +78,8 @@ class Shower {
 }
 
 class Person implements Runnable {
-    Shower shower;
-    SEX sex;
+    private final Shower shower;
+    private final SEX sex;
     private final Random random = new Random();
 
     public Person(Shower shower, SEX state) {
