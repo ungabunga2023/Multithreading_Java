@@ -3,6 +3,7 @@ package module4_lesson2;
 /*
 Решение студентов
  */
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -58,12 +59,12 @@ class Shower {
                 // если душ не свободен, то проверить соответствует ли пол входящего тому кто внутри
                 if (showerState != sex) {
                     //если не соответствует, то отправить тред ждать пока душевая не освободиться
-                    System.out.println("Душ занят " +  showerState + "! В душевой " + inShower + " "  + showerState);
+                    System.out.println("Душ занят " + showerState + "! В душевой " + inShower + " " + showerState);
                     while (inShower.get() != 0) {
                         condition.await();
+                        inShower.incrementAndGet();
                     }
-                }
-                else {
+                } else {
                     inShower.incrementAndGet();
                     System.out.println("В душевой " + inShower + " " + showerState);
                 }
